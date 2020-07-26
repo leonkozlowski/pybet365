@@ -1,0 +1,31 @@
+{
+  "success": 1,
+  "pager": {
+    "page": 1,
+    "per_page": 50,
+    "total": 102
+  },
+  "results": [
+    {
+      "id": "88107197",
+      "sport_id": "92",
+      "time": "1586480400",
+      "time_status": "0",
+      "league": {
+        "id": "10036652",
+        "name": "Moscow Liga Pro"
+      },
+      "home": {
+        "id": "10423098",
+        "name": "Evgenii Kryuchkov"
+      },
+      "away": {
+        "id": "10433218",
+        "name": "Aik Lulikyan"
+      },
+      "ss": null,
+      "our_event_id": "2297143",
+      "updated_at": "1586478473"
+    }
+  ]
+}
