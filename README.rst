@@ -40,6 +40,7 @@ From source
     $ pip install -r requirements_dev.txt
 
 From build
+
 .. code-block:: bash
 
     $ pip install pybet365
