@@ -41,6 +41,7 @@ From source
 
 From build
 .. code-block:: bash
+
     $ pip install pybet365
 
 
