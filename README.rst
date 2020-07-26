@@ -26,7 +26,9 @@ Installation
 ------------
 
 From source
+
 .. code-block:: bash
+
     $ git clone https://github.com/leonkozlowski/pybet365.git
     $ cd pybet365
 
@@ -46,7 +48,9 @@ Features
 --------
 
 GET Request to Upcoming Events Endpoint
+
 .. code-block:: python
+
     from pybet365 import Bet365
 
     client = Bet365(api_host="someHost", api_key="someKey")
@@ -55,7 +59,9 @@ GET Request to Upcoming Events Endpoint
     print(upcoming_events)
 
 Response
+
 .. code-block:: JSON
+
     {
       "success": 1,
       "pager": {
@@ -89,7 +95,9 @@ Response
     }
 
 Access response objects with dot notation
+
 .. code-block:: python
+
     from pybet365 import Bet365
 
     client = Bet365(api_host="someHost", api_key="someKey")
@@ -100,7 +108,9 @@ Access response objects with dot notation
 
 
 Access of array type `results` objects
+
 .. code-block:: python
+
     from pybet365 import Bet365
 
     client = Bet365(api_host="someHost", api_key="someKey")
@@ -124,6 +134,7 @@ Testing
 _______
 
 .. code-block:: bash
+
     # Test with pytest
     make tests
 
