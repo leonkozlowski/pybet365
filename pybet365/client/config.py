@@ -5,7 +5,7 @@ from typing import Union
 
 
 class ExtendedEnum(Enum):
-    """Allows access to overloaded functions for standard Enum"""
+    """Allows access to overloaded functions for standard Enum."""
 
     @classmethod
     def list(cls):
@@ -22,7 +22,6 @@ class Bet365SportId(ExtendedEnum):
     _value_ - value[0]
     _pretty_ - value[1]
 
-    (e.g.)
     >>> soccer = Bet365SportId.AMERICAN_FOOTBALL
 
     >>> soccer.name
@@ -33,6 +32,7 @@ class Bet365SportId(ExtendedEnum):
 
     >>> soccer.pretty
     >>> "american-football"
+
     """
 
     @DynamicClassAttribute
@@ -78,6 +78,7 @@ class Bet365Mnemonic(Enum):
     see: (https://1394697259.gitbook.io/bet365-api/bet36)
 
     Internal mapping to cast fields where necessary
+
     """
 
     PLACE_365 = "3P"
@@ -123,7 +124,9 @@ class Bet365Mnemonic(Enum):
     BET_CALL_FEATURE_DISABLED_COMMENT = "CM"
     CHANNEL_COLUMN_NUMBER = "CN"
     COLUMN = "CO"
-    CLOSE_BETS_PRESENTATION_PULL_DISABLED_CURRENT_PROGRESS_CURRENT_PERIOD = "CP"  # noqa: E501
+    CLOSE_BETS_PRESENTATION_PULL_DISABLED_CURRENT_PROGRESS_CURRENT_PERIOD = (
+        "CP"  # noqa: E501
+    )
     CLASS_ORDER_CLOSE_BET_RETURNS = "CR"
     CLASSIFICATIONS = "CS"
     COMPETITION_NAME = "CT"
@@ -229,7 +232,9 @@ class Bet365Mnemonic(Enum):
     PREVIOUS_SET_SCORE_SELECTED = "LS"
     MARKET = "MA"
     BET_CALL_V2_DISABLED_MAX_BET = "MB"
-    CUSTOMER_TO_CUSTOMER_CALLING_FEATURE_DISABLED_COMMENT_V4_MARKET_COUNT = "MC"  # noqa: E501
+    CUSTOMER_TO_CUSTOMER_CALLING_FEATURE_DISABLED_COMMENT_V4_MARKET_COUNT = (
+        "MC"  # noqa: E501
+    )
     MATCHLIVE_PERIOD = "MD"
     MULTI_EVENT = "ME"
     MATCH_FLAG = "MF"
@@ -238,7 +243,9 @@ class Bet365Mnemonic(Enum):
     MERGE_MARKET = "MM"
     SECONDARY_UK_EVENT = "MO"
     MATCH_POSTPONED = "MP"
-    CUSTOMER_TO_REPRESENTATIVE_CALLING_FEATURE_DISABLED_MORE_MARKETS = "MR"  # noqa: E501
+    CUSTOMER_TO_REPRESENTATIVE_CALLING_FEATURE_DISABLED_MORE_MARKETS = (
+        "MR"  # noqa: E501
+    )
     MEDIA_ID = "MS"
     BET_CALL_V2_TWILIO_DISABLED_MARKET_TYPE = "MT"
     MULTILINE = "MU"

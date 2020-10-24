@@ -2,29 +2,27 @@
 Facade for `upcoming_events` Delegation
 
 Bet365 API Responses contain 2 common components
+
 Bet365Response object is tasked to parse:
+
     "success": int
     "results": list
 
 This module provides delegation for `UpcomingEventsResponse`
 
 The objects are accessible via dot notation or via `.get(..)`
+
 """
 
 from typing import List, Union
 
-from pybet365.response.base import (
-    Bet365Response,
-    PagerBase,
-    ResultBase
-)
+from pybet365.response.base import Bet365Response, PagerBase, ResultBase
 
 
 class UpcomingEvent(ResultBase):
     """
     Component for dot notation access of `results` from UpcomingEvent Endpoint.
 
-    (e.g.)
     >>> data = {
     ...   "id":"86576599",
     ...   "sport_id":"1",
@@ -42,6 +40,7 @@ class UpcomingEvent(ResultBase):
 
     >>> UpcomingEvent(data).away.id
     >>> "10361085"
+
     """
 
     def __init__(self, data: dict):
@@ -66,12 +65,15 @@ class UpcomingEventsResponse(Bet365Response):
     The object wraps the response and exposes dot notation access
 
     The top level accesses for `upcoming` endpoint are:
+
         "success": int
         "pager": dict
         "results": list
 
     The `results` object is parsed into `UpcomingEvent` facades
+
     Say you have a parsed response from UpcomingEvents Endpoint
+
     >>> response_object.results
     >>> [
     ...   {
@@ -86,6 +88,7 @@ class UpcomingEventsResponse(Bet365Response):
 
     >>> response_object.results[0].updated_at
     >>> "1586461906"
+
     """
 
     def __init__(self, data):

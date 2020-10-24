@@ -1,29 +1,14 @@
 """Response namespace."""
 
-from .base import (
-    Bet365Response,
-    FiResultBase,
-    MetaBase,
-    PagerBase
-)
+from .base import Bet365Response, FiResultBase, MetaBase, PagerBase
 
-from .in_play_events import (
-    InPlayEventsResponse,
-    InPlayResult
-)
+from .in_play_events import InPlayEventsResponse, InPlayResult
 
 from .pre_match_odds import PreMatchOddsResponse
 
-from .result import (
-    Result,
-    ResultEvent,
-    ResultResponse
-)
+from .result import Result, ResultEvent, ResultResponse
 
-from .upcoming_events import (
-    UpcomingEvent,
-    UpcomingEventsResponse
-)
+from .upcoming_events import UpcomingEvent, UpcomingEventsResponse
 
 __all__ = [
     "Bet365Response",
@@ -37,5 +22,5 @@ __all__ = [
     "ResultEvent",
     "ResultResponse",
     "UpcomingEvent",
-    "UpcomingEventsResponse"
+    "UpcomingEventsResponse",
 ]
