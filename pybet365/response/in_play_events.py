@@ -2,32 +2,25 @@
 Facade for `in_play_events` Delegation
 
 Bet365 API Responses contain 2 common components
+
 Bet365Response object is tasked to parse:
+
     "success": int
     "results": list
 
 This module provides delegation for `InPlayEventsResponse`
 
 The objects are accessible via dot notation or via `.get(..)`
+
 """
 
 from typing import List, Union
 
-from pybet365.response.base import (
-    Bet365Response,
-    StatsBase
-)
+from pybet365.response.base import Bet365Response, StatsBase
 
 
 class InPlayResult(dict):
-    """Result Endpoint `results` array contents access.
-    (e.g.)
-        {
-            "type": "CL",
-            ...
-            "CD": "1"
-        }
-    """
+    """Result Endpoint `results` array contents access."""
 
     def __init__(self, data: dict):
         """Constructor for InPlayResult."""
@@ -46,11 +39,14 @@ class InPlayEventsResponse(Bet365Response):
     The object wraps the response and exposes dot notation access
 
     The top level accesses for `inplay` endpoint are:
+
         "success": int
         "results": list
 
     The `results` object is parsed into `InPlayResult` facades
+
     Say you have a parsed response from InPlayEvents Endpoint
+
     >>> response_object.results
     >>> [
     ...     {
@@ -67,6 +63,7 @@ class InPlayEventsResponse(Bet365Response):
 
     >>> response_object.results[0].type
     >>> "67890"
+
     """
 
     def __init__(self, data):

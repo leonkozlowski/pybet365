@@ -2,20 +2,28 @@
 Facade `BaseResponse Object` Delegation
 
 Bet365 API Responses contain 2 common components
+
 Bet365Response object is tasked to parse:
+
     "success": int
     "results": list
 
 Further delegation for facade access to responses are subclassed
 
 `InPlayFilterResponse`
+
 `InPlayOddsResponse`
+
 `PreMatchOddsResponse`
+
 `PreMatchOddsResponse`
+
 `InPlayEventsResponse`
+
 `UpcomingEventsResponse`
 
 The objects are accessible via dot notation or via `.get(..)`
+
 """
 from typing import Union
 
@@ -43,15 +51,15 @@ class FiResultBase(dict):
     """
     Component for dot notation for "FI" based objects.
 
-    (e.g.)
     >>> data = {
     ...     "FI":"87967884",
     ...     "event_id":"12312412",
-    ...     "main": {...}
+    ...     "main": {}
     ... }
 
     >>> FiResultBase(data).fi
     >>> "87967884"
+
     """
 
     def __init__(self, data: dict):
@@ -78,7 +86,6 @@ class MetaBase(dict):
     """
     Component for dot notation for objects with "id" and "name".
 
-    (e.g.)
     >>> data = {
     ...     "id":"10037409",
     ...     "name":"Mexico Liga MX Femenil"
@@ -86,6 +93,7 @@ class MetaBase(dict):
 
     >>> MetaBase(data).id
     >>> "10037409"
+
     """
 
     def __init__(self, data: dict):
@@ -116,7 +124,7 @@ class MetaBase(dict):
 class PagerBase(dict):
     """
     Component for dot notation access of `pager` object in API Response.
-    (e.g.)
+
     >>> data = {
     ...     "page": 1,
     ...     "per_page": 50,
@@ -128,6 +136,7 @@ class PagerBase(dict):
 
     >>> PagerBase(data).per_page
     >>> 50
+
     """
 
     def __init__(self, data: dict):
@@ -154,7 +163,6 @@ class ResultBase(dict):
     """
     Component for dot notation access of `results` from any Endpoint.
 
-    (e.g.)
     >>> data = {
     ...   "id":"86576599",
     ...   "sport_id":"1",
@@ -172,6 +180,7 @@ class ResultBase(dict):
 
     >>> ResultBase(data).away.id
     >>> "10361085"
+
     """
 
     def __init__(self, data: dict):
@@ -223,7 +232,6 @@ class StatsBase(dict):
     """
     Component for dot notation access of `stats` from any Endpoint.
 
-    (e.g.)
     >>> data = {
     ...     "event_id":"2130389",
     ...     "update_at":"1581990853",
@@ -235,6 +243,7 @@ class StatsBase(dict):
 
     >>> StatsBase(data).update_at
     >>> "1581990853"
+
     """
 
     def __init__(self, data: dict):

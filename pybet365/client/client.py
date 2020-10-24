@@ -5,14 +5,21 @@ Bet365 Serves as a Client to make requests to Bet365 API
 see for documentation: (https://1394697259.gitbook.io/bet365-api/)
 
 Bet365 Exposes 6 Endpoints:
+
     Result ["GET"]
+
     InPlay Filter ["GET"]
+
     InPlay Odds ["GET"]
+
     PreMatch odds ["GET"]
+
     InPlay Events ["GET"]
+
     Upcoming Events ["GET"]
 
 Responses are parsed into Facade Access objects (Base Bet365Response)
+
 """
 from typing import Optional, Union
 from urllib.parse import urljoin
@@ -24,18 +31,8 @@ from pybet365.response import Bet365Response
 from pybet365.client.config import RESPONSE_OBJECT_FACTORY
 
 
-class Bet365:
-    """
-    Bet365 API Wrapper.
-
-    Accessible Endpoints:
-        Bet365 Result ["GET"] via `result(...)`
-        Bet365 InPlay Filter ["GET"] via `in_play_filter(...)`
-        Bet365 InPlay Odds ["GET"] via `in_play_odds(...)`
-        Bet365 PreMatch odds ["GET"] via `pre_match_odds(...)`
-        Bet365 InPlay Events ["GET"] via `in_play_events(...)`
-        Bet365 Upcoming Events ["GET"] via `upcoming_events(...)`
-    """
+class Bet365(object):
+    """Bet365 API Wrapper."""
 
     def __init__(self, api_host, api_key):
         """Constructor for Bet365."""
@@ -63,6 +60,7 @@ class Bet365:
 
         Raises:
             `raise_for_status()` for statuses other than `200`
+
         """
         url = urljoin(self.base_url.format(version), url_extras)
 
@@ -96,16 +94,12 @@ class Bet365:
         Returns:
             Bet365Response: Response Object for `result` endpoint
         """
-        querystring = {
-            "event_id": event_id
-        }
+        querystring = {"event_id": event_id}
 
         return self._get(url_extras="result", params=querystring)
 
     def in_play_filter(
-        self,
-        sport_id: Optional[str] = None,
-        league_id: Optional[str] = None
+        self, sport_id: Optional[str] = None, league_id: Optional[str] = None
     ) -> Bet365Response:
         """
         Caller for `InPlay Filters` endpoint of Bet365 API.
@@ -116,11 +110,9 @@ class Bet365:
 
         Returns:
             Bet365Response: Response Object for `in_play_filter` endpoint
+
         """
-        querystring = {
-            "sport_id": sport_id,
-            "league_id": league_id
-        }
+        querystring = {"sport_id": sport_id, "league_id": league_id}
 
         return self._get(url_extras="inplay_filter", params=querystring)
 
@@ -143,13 +135,9 @@ class Bet365:
 
         Returns:
             Bet365Response: Response Object for `in_play_odds` endpoint
+
         """
-        querystring = {
-            "FI": fi,
-            "raw": raw,
-            "lineup": lineup,
-            "stats": stats
-        }
+        querystring = {"FI": fi, "raw": raw, "lineup": lineup, "stats": stats}
 
         return self._get(url_extras="event", params=querystring)
 
@@ -165,11 +153,9 @@ class Bet365:
 
         Returns:
             Bet365Response: Response Object for `pre_match_odds` endpoint
+
         """
-        querystring = {
-            "FI": fi,
-            "raw": raw
-        }
+        querystring = {"FI": fi, "raw": raw}
 
         return self._get(
             url_extras="prematch", params=querystring, version="v2"
@@ -184,10 +170,9 @@ class Bet365:
 
         Returns:
             Bet365Response: Response Object for `in_play_events` endpoint
+
         """
-        querystring = {
-            "raw": raw
-        }
+        querystring = {"raw": raw}
 
         return self._get(url_extras="inplay", params=querystring)
 
@@ -205,14 +190,13 @@ class Bet365:
         Args:
             sport_id (str): String identifier for sport type
             page (Optional[str]): Pagination for API Response
-                (NOTE: Out of box default is 50)
             lng_id (Optional[str]): Language Id
             day (Optional[str]): Go forward ONLY date to query
-                (e.g.) - 20201124
             league_id (Optional[str]): Id for desired league
 
         Returns:
             Bet365Response: Response Object for `upcoming_events` endpoint
+
         """
         querystring = {
             "sport_id": sport_id,
@@ -227,19 +211,14 @@ class Bet365:
     @staticmethod
     def _prune(params: dict) -> Union[dict, None]:
         """
-        Cleaner of `params` dictionary for API Request
-
-        If `value` for `key` is `NoneType` this key will be removed
+        Cleaner of `params` dictionary for API Request.
 
         Args:
             params (dict): `params` dictionary for API request
-            (e.g.)
-                { "sport_id": "19", "lng_id": None }
 
         Returns:
             pruned_params (dict): `params` dict without `None` values or keys
-            (e.g.)
-                { "sport_id": "19" }
+
         """
         pruned_params = dict((k, v) for k, v in params.items() if v)
 

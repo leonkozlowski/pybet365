@@ -21,15 +21,6 @@ pybet365.cli module
    :undoc-members:
    :show-inheritance:
 
-pybet365.pybet365 module
-------------------------
-
-.. automodule:: pybet365.pybet365
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Module contents
 ---------------
 
