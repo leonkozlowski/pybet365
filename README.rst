@@ -2,6 +2,10 @@
 pybet365
 ========
 
+⚠️ The API that `pybet365` wraps has been depreciated from rapid-api ⚠️
+
+Due to this the packages is currenty **unusable**
+
 
 .. image:: https://img.shields.io/pypi/v/pybet365.svg
         :target: https://pypi.python.org/pypi/pybet365
